@@ -1,22 +1,22 @@
 export type Specialty =
-  | 'Plumbing'
-  | 'Electrical'
-  | 'Carpentry'
-  | 'Painting'
-  | 'Landscaping'
-  | 'HVAC'
-  | 'General Handyman'
-  | 'Other'
+  | 'Canalização'
+  | 'Eletricidade'
+  | 'Carpintaria'
+  | 'Pintura'
+  | 'Jardinagem'
+  | 'AVAC'
+  | 'Faz-tudo Geral'
+  | 'Outro'
 
 export const SPECIALTIES: Specialty[] = [
-  'Plumbing',
-  'Electrical',
-  'Carpentry',
-  'Painting',
-  'Landscaping',
-  'HVAC',
-  'General Handyman',
-  'Other',
+  'Canalização',
+  'Eletricidade',
+  'Carpintaria',
+  'Pintura',
+  'Jardinagem',
+  'AVAC',
+  'Faz-tudo Geral',
+  'Outro',
 ]
 
 export type Contractor = {

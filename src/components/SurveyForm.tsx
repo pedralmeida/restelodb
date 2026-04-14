@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const seasonOptions = ['Spring', 'Summer', 'Autumn', 'Winter']
+const seasonOptions = ['Primavera', 'Verão', 'Outono', 'Inverno']
 
 export default function SurveyForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -9,9 +9,9 @@ export default function SurveyForm() {
     return (
       <div className="text-center">
         <h2 className="text-3xl font-bold mb-4">
-          Thanks for voting!
+          Obrigado por votar!
         </h2>
-        <p>Your response has been recorded.</p>
+        <p>A sua resposta foi registada.</p>
       </div>
     )
   }
@@ -19,10 +19,10 @@ export default function SurveyForm() {
   return (
     <div className="w-full max-w-md px-4">
       <h1 className="text-4xl md:text-5xl font-black mb-2 tracking-tight">
-        What&apos;s your favorite season?
+        Qual é a sua estação favorita?
       </h1>
       <p className="mb-8">
-        Pick your favorite season and tell us why you love it.
+        Escolha a sua estação favorita e diga-nos por que a ama.
       </p>
 
       <form
@@ -53,7 +53,7 @@ export default function SurveyForm() {
             htmlFor="name"
             className="block text-sm font-medium mb-2"
           >
-            Your Name
+            O seu Nome
           </label>
           <input
             type="text"
@@ -61,7 +61,7 @@ export default function SurveyForm() {
             name="name"
             required
             className="w-full px-4 py-3 rounded-lg border focus:outline-none"
-            placeholder="Your name"
+            placeholder="O seu nome"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function SurveyForm() {
             htmlFor="season"
             className="block text-sm font-medium mb-2"
           >
-            Favorite Season
+            Estação Favorita
           </label>
           <select
             id="season"
@@ -79,7 +79,7 @@ export default function SurveyForm() {
             className="w-full px-4 py-3 rounded-lg border focus:outline-none"
           >
             <option value="">
-              Select a season...
+              Selecionar uma estação...
             </option>
             {seasonOptions.map((season) => (
               <option key={season} value={season}>
@@ -94,14 +94,14 @@ export default function SurveyForm() {
             htmlFor="reason"
             className="block text-sm font-medium mb-2"
           >
-            Why is it the best?
+            Por que é a melhor?
           </label>
           <textarea
             id="reason"
             name="reason"
             rows={3}
             className="w-full px-4 py-3 rounded-lg border focus:outline-none resize-none"
-            placeholder="Tell us why you love this season..."
+            placeholder="Diga-nos por que ama esta estação..."
           />
         </div>
 
@@ -109,7 +109,7 @@ export default function SurveyForm() {
           type="submit"
           className="w-full px-8 py-3 border font-semibold rounded-lg"
         >
-          Submit Vote
+          Submeter Voto
         </button>
       </form>
     </div>

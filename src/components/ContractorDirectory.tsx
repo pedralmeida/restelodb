@@ -16,24 +16,24 @@ const SEED_CONTRACTORS: Contractor[] = [
     id: 'seed-1',
     name: 'Mike Torres',
     phone: '(555) 234-5678',
-    specialty: 'Plumbing',
-    notes: 'Fixed our burst pipe same-day. Very professional and fair pricing.',
+    specialty: 'Canalização',
+    notes: 'Reparou o meu cano rebentado no mesmo dia. Muito profissional e preços justos.',
     submittedAt: '2024-01-15T10:00:00Z',
   },
   {
     id: 'seed-2',
     name: 'Sara Chen',
     phone: '(555) 876-5432',
-    specialty: 'Electrical',
-    notes: 'Licensed electrician, great for panel upgrades and EV chargers.',
+    specialty: 'Eletricidade',
+    notes: 'Eletricista licenciada, ótima para upgrades de painéis e carregadores EV.',
     submittedAt: '2024-02-01T10:00:00Z',
   },
   {
     id: 'seed-3',
     name: 'Dave Kowalski',
     phone: '(555) 345-6789',
-    specialty: 'Carpentry',
-    notes: 'Custom decks and fences. Always on time.',
+    specialty: 'Carpintaria',
+    notes: 'Decks e cercas personalizadas. Sempre a horas.',
     submittedAt: '2024-03-10T10:00:00Z',
   },
 ]
@@ -43,21 +43,21 @@ const SEED_REVIEWS: Review[] = [
     id: 'sr-1',
     contractorId: 'seed-1',
     rating: 5,
-    comment: 'Showed up within 2 hours, fixed everything perfectly!',
+    comment: 'Apareceu em menos de 2 horas, reparou tudo perfeitamente!',
     createdAt: '2024-02-10T10:00:00Z',
   },
   {
     id: 'sr-2',
     contractorId: 'seed-1',
     rating: 4,
-    comment: 'Good work, slightly pricey but worth it.',
+    comment: 'Bom trabalho, um pouco caro mas vale a pena.',
     createdAt: '2024-03-05T10:00:00Z',
   },
   {
     id: 'sr-3',
     contractorId: 'seed-2',
     rating: 5,
-    comment: 'Did a fantastic job upgrading our panel.',
+    comment: 'Fez um trabalho fantástico no upgrade do meu painel.',
     createdAt: '2024-02-20T10:00:00Z',
   },
 ]
@@ -85,7 +85,7 @@ export function ContractorDirectory() {
   const [reviews, setReviews] = useState<Review[]>(() =>
     loadFromStorage(LS_REVIEWS, SEED_REVIEWS)
   )
-  const [activeTab, setActiveTab] = useState<'All' | Specialty>('All')
+  const [activeTab, setActiveTab] = useState<'Todos' | Specialty>('Todos')
   const [search, setSearch] = useState('')
 
   // Sync to localStorage on change
@@ -129,7 +129,7 @@ export function ContractorDirectory() {
   const filteredContractors = useMemo(() => {
     const q = search.toLowerCase().trim()
     return contractors.filter((c) => {
-      const matchesTab = activeTab === 'All' || c.specialty === activeTab
+      const matchesTab = activeTab === 'Todos' || c.specialty === activeTab
       if (!matchesTab) return false
       if (!q) return true
       return (
@@ -141,10 +141,10 @@ export function ContractorDirectory() {
     })
   }, [contractors, activeTab, search])
 
-  const tabs: Array<'All' | Specialty> = ['All', ...SPECIALTIES]
+  const tabs: Array<'Todos' | Specialty> = ['Todos', ...SPECIALTIES]
 
-  const countFor = (tab: 'All' | Specialty) =>
-    tab === 'All'
+  const countFor = (tab: 'Todos' | Specialty) =>
+    tab === 'Todos'
       ? contractors.length
       : contractors.filter((c) => c.specialty === tab).length
 
@@ -155,11 +155,10 @@ export function ContractorDirectory() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-5xl mb-3">🏘️</div>
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 tracking-tight">
-            Neighbor's Contractor Directory
+            Diretório de Empreiteiros dos Vizinhos
           </h1>
           <p className="text-emerald-100 text-base sm:text-lg max-w-xl mx-auto">
-            Trusted local contractors recommended by your neighbors. Find
-            reliable help or share someone great.
+            Empreiteiros locais de confiança recomendados pelos seus vizinhos. Encontre ajuda fiável ou partilhe alguém excelente.
           </p>
         </div>
       </div>
@@ -175,7 +174,7 @@ export function ContractorDirectory() {
           </span>
           <input
             type="search"
-            placeholder="Search by name, specialty, or keyword…"
+            placeholder="Pesquisar por nome, especialidade ou palavra-chave…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 text-sm bg-white"
@@ -212,13 +211,13 @@ export function ContractorDirectory() {
         {filteredContractors.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <div className="text-4xl mb-3">🔧</div>
-            <p className="font-medium">No contractors found.</p>
+            <p className="font-medium">Nenhum empreiteiro encontrado.</p>
             {search && (
               <button
                 onClick={() => setSearch('')}
                 className="mt-2 text-sm text-emerald-600 hover:underline"
               >
-                Clear search
+                Limpar pesquisa
               </button>
             )}
           </div>
@@ -239,7 +238,7 @@ export function ContractorDirectory() {
 
         {/* Footer */}
         <p className="text-center text-xs text-gray-400 pt-4">
-          Know a great contractor? Submit their info to help your neighbors.
+          Conhece um ótimo empreiteiro? Submeta as suas informações para ajudar os seus vizinhos.
         </p>
       </div>
     </div>

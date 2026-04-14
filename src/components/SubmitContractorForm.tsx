@@ -75,7 +75,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
           onClick={() => setOpen(true)}
           className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow transition-colors"
         >
-          + Submit a Contractor
+          + Submeter um Empreiteiro
         </button>
       </div>
     )
@@ -85,7 +85,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
     <div className="bg-white rounded-2xl shadow-lg border border-emerald-100 p-6 mb-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-bold text-emerald-800">
-          Submit a Contractor
+          Submeter um Empreiteiro
         </h2>
         <button
           onClick={() => setOpen(false)}
@@ -98,7 +98,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
 
       {done ? (
         <div className="text-center py-6 text-emerald-700 font-semibold text-lg">
-          ✓ Contractor added to the directory!
+          ✓ Empreiteiro adicionado ao diretório!
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -111,7 +111,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name *
+                Nome Completo *
               </label>
               <input
                 type="text"
@@ -119,13 +119,13 @@ export function SubmitContractorForm({ onAdded }: Props) {
                 value={fields.name}
                 onChange={handleChange}
                 required
-                placeholder="e.g. John Smith"
+                placeholder="ex. João Silva"
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Phone Number *
+                Número de Telefone *
               </label>
               <input
                 type="tel"
@@ -133,7 +133,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
                 value={fields.phone}
                 onChange={handleChange}
                 required
-                placeholder="e.g. (555) 123-4567"
+                placeholder="ex. (555) 123-4567"
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400"
               />
             </div>
@@ -141,7 +141,7 @@ export function SubmitContractorForm({ onAdded }: Props) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Specialty / Category *
+              Especialidade / Categoria *
             </label>
             <select
               name="specialty"
@@ -160,14 +160,14 @@ export function SubmitContractorForm({ onAdded }: Props) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Notes / Description (optional)
+              Notas / Descrição (opcional)
             </label>
             <textarea
               name="notes"
               value={fields.notes}
               onChange={handleChange}
               rows={3}
-              placeholder="e.g. Great with older homes, very responsive..."
+              placeholder="ex. Ótimo com casas antigas, muito responsivo..."
               className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 resize-none"
             />
           </div>
@@ -178,14 +178,14 @@ export function SubmitContractorForm({ onAdded }: Props) {
               onClick={() => setOpen(false)}
               className="px-4 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors"
             >
-              Cancel
+              Cancelar
             </button>
             <button
               type="submit"
               disabled={submitting}
               className="bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
             >
-              {submitting ? 'Submitting…' : 'Add Contractor'}
+              {submitting ? 'A submeter…' : 'Adicionar Empreiteiro'}
             </button>
           </div>
         </form>

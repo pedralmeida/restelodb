@@ -38,14 +38,14 @@ function StarRating({
 }
 
 const SPECIALTY_COLORS: Record<string, string> = {
-  Plumbing: 'bg-blue-100 text-blue-700',
-  Electrical: 'bg-yellow-100 text-yellow-700',
-  Carpentry: 'bg-orange-100 text-orange-700',
-  Painting: 'bg-pink-100 text-pink-700',
-  Landscaping: 'bg-green-100 text-green-700',
-  HVAC: 'bg-sky-100 text-sky-700',
-  'General Handyman': 'bg-purple-100 text-purple-700',
-  Other: 'bg-gray-100 text-gray-600',
+  Canalização: 'bg-blue-100 text-blue-700',
+  Eletricidade: 'bg-yellow-100 text-yellow-700',
+  Carpintaria: 'bg-orange-100 text-orange-700',
+  Pintura: 'bg-pink-100 text-pink-700',
+  Jardinagem: 'bg-green-100 text-green-700',
+  AVAC: 'bg-sky-100 text-sky-700',
+  'Faz-tudo Geral': 'bg-purple-100 text-purple-700',
+  Outro: 'bg-gray-100 text-gray-600',
 }
 
 export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
@@ -99,11 +99,11 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
                 </span>
               </div>
               <span className="text-xs text-gray-400">
-                {reviews.length} review{reviews.length !== 1 ? 's' : ''}
+                {reviews.length} avaliação{reviews.length !== 1 ? 'ões' : ''}
               </span>
             </div>
           ) : (
-            <span className="text-xs text-gray-400 italic">No reviews yet</span>
+            <span className="text-xs text-gray-400 italic">Ainda sem avaliações</span>
           )}
         </div>
       </div>
@@ -146,8 +146,8 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
               className="text-xs text-emerald-600 hover:text-emerald-800 font-medium"
             >
               {showAllReviews
-                ? 'Show less'
-                : `Show ${reviews.length - 2} more review${reviews.length - 2 !== 1 ? 's' : ''}`}
+                ? 'Mostrar menos'
+                : `Mostrar ${reviews.length - 2} mais avaliação${reviews.length - 2 !== 1 ? 'ões' : ''}`}
             </button>
           )}
         </div>
@@ -161,7 +161,7 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
         >
           <div>
             <p className="text-sm font-medium text-gray-700 mb-1">
-              Your rating *
+              A sua avaliação *
             </p>
             <StarRating value={rating} onChange={setRating} />
           </div>
@@ -169,7 +169,7 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             rows={2}
-            placeholder="Optional comment…"
+            placeholder="Comentário opcional…"
             className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-300 resize-none"
           />
           <div className="flex gap-2 justify-end">
@@ -178,14 +178,14 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
               onClick={() => setShowReviewForm(false)}
               className="text-xs text-gray-500 hover:text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-100"
             >
-              Cancel
+              Cancelar
             </button>
             <button
               type="submit"
               disabled={!rating || submitting}
               className="bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white text-xs font-semibold px-4 py-1.5 rounded-lg transition-colors"
             >
-              Submit Review
+              Submeter Avaliação
             </button>
           </div>
         </form>
@@ -194,7 +194,7 @@ export function ContractorCard({ contractor, reviews, onAddReview }: Props) {
           onClick={() => setShowReviewForm(true)}
           className="text-xs text-emerald-600 hover:text-emerald-800 font-medium mt-auto self-start"
         >
-          + Leave a review
+          + Deixar uma avaliação
         </button>
       )}
     </div>
